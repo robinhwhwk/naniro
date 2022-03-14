@@ -1,12 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-    createHashtags();
     createSquares();
-    getNewCode();
 
     let guessedCodes = [[]];
     let availableSpace = 1;
 
-    let code = getNewCode();
+    const code = getNewCode();
     let guessedCodeCount = 0;
 
     const keys = document.querySelectorAll('.keyboard-row button');
@@ -14,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fillLeftPallete();
 
     function getNewCode() {
-        let randomColor = Math.floor(Math.random()*16777215).toString(16);
+        let randomColor = Math.floor(Math.random() * 16777215).toString(16);
         if (randomColor.length < 6) {
             randomColor += "0" * (6 - randomColor.length)
         }
@@ -32,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (currentCodeArr && currentCodeArr.length < 6) {
             currentCodeArr.push(letter);
-            // Get the square with id of 1
+            // Get the square with id of available space
             const availableSpaceEl = document.getElementById(String(availableSpace));
             availableSpace = availableSpace + 1;
 
@@ -40,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    
+
     function getTileColor(letter, index) {
         const isCorrectLetter = code.includes(letter);
 
@@ -57,11 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return "rgb(181, 159, 59)";
     }
 
-    function isHexColor (hex) {
+    function isHexColor(hex) {
         return typeof hex === 'string'
             && hex.length === 6
             && !isNaN(Number('0x' + hex))
-      }
+    }
 
     function handleSubmitCode() {
         const currentCodeArr = getCurrentCodeArr();
@@ -82,8 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentCodeArr.forEach((letter, index) => {
             setTimeout(() => {
                 const tileColor = getTileColor(letter, index);
-
-                const letterId = firstLetterId + index; 
+                const letterId = firstLetterId + index;
                 const letterEl = document.getElementById(letterId);
                 letterEl.classList.add("animate__animated", "animate__flipInX");
                 letterEl.style = `background-color:${tileColor};border-color:${tileColor}`;
@@ -107,30 +104,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function createSquares() {
-        console.log("createsquares is running");
         const gameBoard = document.getElementById("board");
 
-        for (let index = 0; index < 36; index++) {
+        for (let index = 0; index < 42; index++) {
             let square = document.createElement("div");
             square.classList.add("square");
-            square.classList.add("animate_animated");
-            square.setAttribute("id", index + 1);
-            gameBoard.appendChild(square);
-        }
-    }
 
-    function createHashtags() {
-        const hashBoard = document.getElementById("hashboard");
-        let hash = document.createElement("div");
-        hash.classList.add("hashtag");
-        hashBoard.append(hash);
+            if (index % 7 == 0) {        
+                gameBoard.appendChild(square);
+                square.textContent = "#";
+            } else {
+                square.classList.add("square");
+                square.classList.add("animate_animated");
+                square.setAttribute("id", index - Math.floor(index / 7));
+                gameBoard.appendChild(square);
+            }
+        }
     }
 
     function handleDeleteLetter() {
         const currentCodeArr = getCurrentCodeArr();
+        console.log(currentCodeArr);
         const removedLetter = currentCodeArr.pop();
 
-        guessedCodes[guessedCodes.length - 1] = currentCodeArr; 
+        if (removedLetter == null) return;
+
+        guessedCodes[guessedCodes.length - 1] = currentCodeArr;
 
         const lastLetterEl = document.getElementById(String(availableSpace - 1));
 
@@ -142,15 +141,30 @@ document.addEventListener("DOMContentLoaded", () => {
         const leftPallete = document.getElementById("left-pallete");
         const palleteColorCode = "#" + code;
         leftPallete.style = `background-color:${palleteColorCode}`;
-        console.log(code);
     }
 
     function fillRightPallete(currentCode) {
         const rightPallete = document.getElementById("right-pallete");
         const palleteColorCode = "#" + currentCode;
         rightPallete.style = `background-color:${palleteColorCode}`;
-        console.log(currentCode);
     }
+
+    document.addEventListener('keydown', (event) => {
+        let key = event.key.toUpperCase();
+        console.log(key);
+        let keycode = event.code;
+        if ("0123456789ABCDEF".includes(key)) {
+            updateGuessedCodes(key);
+        }
+
+        if (key === "ENTER") {
+            handleSubmitCode();
+        }
+
+        if (key === "BACKSPACE") {
+            handleDeleteLetter();
+        }
+    })
 
     for (let i = 0; i < keys.length; ++i) {
         keys[i].onclick = ({ target }) => {
@@ -170,3 +184,4 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 })
+

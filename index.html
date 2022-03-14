@@ -8,6 +8,7 @@
     <title>Naniro: Guess the color</title>
 
     <script src="main.js"></script>
+    <script defer src="helpbutton.js"></script>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -16,10 +17,56 @@
 <body>
     <header>
         <div class="menu-left">
-            <button id="help-button" class="icon" aria-label="Help">
+            <button data-modal-target="#modal" class="icon" aria-label="Help">
                 <img src="https://www.svgrepo.com/show/49680/round-help-button.svg" height="24" width="24"
                     alt="Help Button">
             </button>
+            <div class="modal" id="modal">
+                <div class="modal-header">
+                    <div class="title">How To Play</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal-body">
+                    Guess the <b>COLOR CODE</b> in six tries. <br>
+                    The left pallete shows the target color. The right pallete shows the color of your last guess. <br>
+                    Each guess must be a six-digit hex color code made up of <br> 3 pairs of digits each representing
+                    Red, Green, and Blue components of the color in order. Hit the enter button to submit. <br>
+                    After each guess, the color of the tiles will change to show how close your guess was to the hex code.
+                <div>
+                    <br>
+                    <b>Examples</b>
+                    <div class="examples">
+                        <div class="square">#</div> 
+                        <div class="square" style="background-color: rgb(83, 141, 78)">F</div> 
+                        <div class="square">A</div>
+                        <div class="square">0</div>
+                        <div class="square">7</div>
+                        <div class="square">9</div>
+                        <div class="square">2</div> <br> <br> 
+                    <p>The letter F is in the code and in the correct spot.</p> 
+                        <div class="square">#</div> 
+                        <div class="square">0</div> 
+                        <div class="square">5</div>
+                        <div class="square" style="background-color: rgb(181, 159, 59)">7</div>
+                        <div class="square">4</div>
+                        <div class="square">5</div>
+                        <div class="square">6</div> <br> <br> 
+                        <p>The number 7 is in the code but in the wrong spot.</p>
+                        <div class="square">#</div> 
+                        <div class="square">2</div> 
+                        <div class="square">8</div>
+                        <div class="square">1</div>
+                        <div class="square">A</div>
+                        <div class="square">G</div> 
+                        <div class="square" style="background-color: rgb(58,58, 60)">6</div> <br> <br>
+                        <p>The number 6 is not in the word in any spot.</p>
+                    </div>
+                    <p></p>
+                </div>
+
+                </div>
+            </div>
+            <div id="overlay"></div>
         </div>
         <div class='title'> Naniro </div>
         <hr>
@@ -31,8 +78,10 @@
                     <div class="circle" id="left-pallete"></div>
                     <div class="circle" id="right-pallete"></div>
                 </div>
-                <div id="hashtag-container">
-                    <div id="hashboard"></div>
+                <div class="rgb-container">
+                    <div class="rgb">RED</div>
+                    <div class="rgb">GREEN</div>
+                    <div class="rgb">BLUE</div>
                 </div>
                 <div id="board-container">
                     <div id="board"></div>
