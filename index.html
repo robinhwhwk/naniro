@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naniro: Guess the color</title>
+
+    <script src="main.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <header>
+        <div class="menu-left">
+            <button id="help-button" class="icon" aria-label="Help">
+                <img src="https://www.svgrepo.com/show/49680/round-help-button.svg" height="24" width="24"
+                    alt="Help Button">
+            </button>
+        </div>
+        <div class='title'> Naniro </div>
+        <hr>
+    </header>
+    <div id="container">
+        <main>
+            <div id="game">
+                <div class="pallete">
+                    <div class="circle" id="left-pallete"></div>
+                    <div class="circle" id="right-pallete"></div>
+                </div>
+                <div id="hashtag-container">
+                    <div id="hashboard"></div>
+                </div>
+                <div id="board-container">
+                    <div id="board"></div>
+                </div>
+
+                <div id="keyboard-container">
+                    <div class="keyboard-row">
+                        <button data-key="0">0</button>
+                        <button data-key="1">1</button>
+                        <button data-key="2">2</button>
+                        <button data-key="3">3</button>
+                        <button data-key="4">4</button>
+                        <button data-key="5">5</button>
+                        <button data-key="6">6</button>
+                        <button data-key="7">7</button>
+                        <button data-key="8">8</button>
+                        <button data-key="9">9</button>
+                    </div>
+                    <div class="keyboard-row">
+                        <button data-key="enter" class="wide-button">Enter</button>
+                        <button data-key="A">A</button>
+                        <button data-key="B">B</button>
+                        <button data-key="C">C</button>
+                        <button data-key="D">D</button>
+                        <button data-key="E">E</button>
+                        <button data-key="F">F</button>
+                        <button data-key="del" class="wide-button">Del</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

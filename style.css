@@ -1,0 +1,174 @@
+:root {
+    overflow-y: hidden;
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100%;
+    background-color: #ffffff;
+}
+
+#container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+}
+
+#game {
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #999;
+}
+
+header {
+    margin-top: 5px;
+}
+
+header .title {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 37px;
+    line-height: 100%;
+    letter-spacing: 0.01em;
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+
+div {
+    display: block;
+}
+
+button.icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    height: 150px;
+    width: 150px;
+    margin: auto;
+    border-radius: 50%;
+    position: absolute;
+    border: 5px solid black;
+    box-sizing: border-box;
+}
+
+#left-pallete {
+    position: absolute;
+    left: 15%;
+    top: 30%;
+}
+
+#right-pallete {
+    position:absolute;
+    right: 15%;
+    top: 30%;
+}
+
+.menu-left {
+    position: absolute;
+    margin: 5px;
+}
+
+#board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.square {
+    border: 2px solid rgb(58, 58, 60);
+    min-width: 50px;
+    min-height: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#keyboard-container {
+    height: 200px;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin:0 auto 8px;
+    touch-action: manipulation;
+}
+
+.keyboard-row button {
+    font-family: inherit;
+    font-weight: bold;
+    border: 0;
+    padding: 0;
+    height: 58px;
+    cursor: pointer;
+    background-color: rgb(129, 131, 132);
+    color: rgb(215, 215, 220);
+    flex-grow: 1;
+    text-transform: uppercase;
+    margin-right: 6px;
+    border-radius: 4px;
+    user-select: none;
+}
+
+.keyboard-row button.wide-button {
+    flex-grow: 1.5;
+}
+
+#hashtag-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+#hashboard {
+    display: flex;
+    box-sizing: border-box;
+}
+
+.hash {
+    border: 2px solid rgb(58, 58, 60);
+    min-width: 50px;
+    min-height: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spacer-half {
+    flex-grow: 0.5;
+}
