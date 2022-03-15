@@ -1,8 +1,8 @@
 :root {
+    overflow-y: hidden;
     margin: 0;
     padding: 0;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-    display:flex;
 }
 
 body {
@@ -11,7 +11,7 @@ body {
 }
 
 #container {
-    margin-top: 3%;
+    margin-top: 10%;
     display: flex;
     height: 100%;
     align-items: center;
@@ -60,33 +60,43 @@ button.icon {
 
 .circle {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-    height: 150px;
-    width: 150px;
+    height: 75px;
+    width: 75px;
     margin: auto;
     border-radius: 50%;
-    position: absolute;
+    position: relative;
     border: 5px solid black;
     box-sizing: border-box;
 }
 
-#left-pallete {
+.pallete {
+    min-width: 20%;
+    align-items: center;
+    text-align: center;
+    margin: 0;
     position: absolute;
-    left: 15%;
-    top: 30%;
+    left: 40%;
+    top: 10%;
+}
+
+#left-pallete {
     display: flex;
-    flex-direction: column;
+    float:left;
+    flex-grow: 1;
+    padding: 20px;
+    position: absolute;
 }
 
 #right-pallete {
-    position:absolute;
-    right: 15%;
-    top: 30%;
     display: flex;
-    flex-direction: column;
+    flex-grow: 1;
+    float: left;
+    padding: 10px;
+    position:absolute;
+    left: 50%;
 }
 
 .menu-left {
@@ -110,7 +120,6 @@ button.icon {
     margin-top: 0;
     margin-bottom: 10px;
     box-sizing: border-box;
-    flex-direction: column;
 }
 
 .square {
@@ -125,8 +134,9 @@ button.icon {
 }
 
 #keyboard-container {
-    margin-top:3%;
-    height: 200px;
+    position: relative;
+    margin: 0;
+    height: 120px;
 }
 
 .keyboard-row {
@@ -142,7 +152,7 @@ button.icon {
     font-weight: bold;
     border: 0;
     padding: 0;
-    height: 58px;
+    height: 50px;
     cursor: pointer;
     background-color: rgb(129, 131, 132);
     color: rgb(215, 215, 220);
@@ -161,6 +171,7 @@ button.icon {
     position: fixed;
     top: 50%;
     left: 50%;
+    max-height: fit-content;
     transform: translate(-50%, -50%) scale(0);
     transition: 200ms ease-in-out;
     border: 1px solid black;
@@ -169,7 +180,6 @@ button.icon {
     background-color: white;
     width: 500px;
     max-width: 80%;
-    display: flex;
 }
 
 .modal.active {
@@ -187,7 +197,6 @@ button.icon {
 .modal-header .title {
     font-size: 1.25rem;
     font-weight: bold;
-    display:flex;
 }
 
 .modal-header .close-button {
@@ -197,14 +206,12 @@ button.icon {
     background: none;
     font-size: 1.25rem;
     font-weight: bold;
-    display:flex;
 }
 
 .modal-body {
     padding: 10px 15px;
     line-height: 1.5;
     font-size: 14px;
-    display:flex;
 }
 
 .spacer-half {
@@ -222,7 +229,6 @@ button.icon {
     pointer-events: none;
     transition: 200ms ease-in-out;
     z-index: 1;
-    display:flex;
 }
 
 #overlay.active {
@@ -233,7 +239,6 @@ button.icon {
 .examples {
     border-bottom: 1px solid rgba(0, 0, 0, .3);
     border-top: 1px solid rgba(0, 0, 0, .3);
-    display:flex;
 }
 
 .examples .square {
@@ -243,22 +248,4 @@ button.icon {
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
-    display:flex;
-}
-
-.rgb-container {
-    align-items: center;
-    text-align: center;
-    margin: 0;
-    border: 0;
-    position: absolute;
-    left: 41%;
-    top: 7%;
-    display: flex;
-}
-
-.rgb {
-    float: left;
-    padding:27px;
-    display:flex;
 }
