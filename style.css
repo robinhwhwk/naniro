@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    display:flex;
 }
 
 body {
@@ -76,12 +77,14 @@ button.icon {
     position: absolute;
     left: 15%;
     top: 30%;
+    display: flex;
 }
 
 #right-pallete {
     position:absolute;
     right: 15%;
     top: 30%;
+display: flex;
 }
 
 .menu-left {
@@ -163,6 +166,7 @@ button.icon {
     background-color: white;
     width: 500px;
     max-width: 80%;
+    display: flex;
 }
 
 .modal.active {
@@ -180,6 +184,7 @@ button.icon {
 .modal-header .title {
     font-size: 1.25rem;
     font-weight: bold;
+    display:flex;
 }
 
 .modal-header .close-button {
@@ -189,12 +194,14 @@ button.icon {
     background: none;
     font-size: 1.25rem;
     font-weight: bold;
+    display:flex;
 }
 
 .modal-body {
     padding: 10px 15px;
     line-height: 1.5;
     font-size: 14px;
+    display:flex;
 }
 
 .spacer-half {
@@ -212,6 +219,7 @@ button.icon {
     pointer-events: none;
     transition: 200ms ease-in-out;
     z-index: 1;
+    display:flex;
 }
 
 #overlay.active {
@@ -222,6 +230,7 @@ button.icon {
 .examples {
     border-bottom: 1px solid rgba(0, 0, 0, .3);
     border-top: 1px solid rgba(0, 0, 0, .3);
+    display:flex;
 }
 
 .examples .square {
@@ -231,6 +240,7 @@ button.icon {
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
+    display:flex;
 }
 
 .rgb-container {
@@ -241,9 +251,11 @@ button.icon {
     position: absolute;
     left: 41%;
     top: 7%;
+    display: flex;
 }
 
 .rgb {
     float: left;
     padding:27px;
+    display:flex;
 }
