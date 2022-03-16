@@ -82,9 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 const tileColor = getTileColor(letter, index);
                 const letterId = firstLetterId + index;
                 const letterEl = document.getElementById(letterId);
+                const keyboardEl = document.getElementById(letter);
                 letterEl.classList.add("animate__animated", "animate__flipInX");
                 letterEl.style = `background-color:${tileColor};border-color:${tileColor}`;
-
             }, interval * index);
         });
 
@@ -169,6 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < keys.length; ++i) {
         keys[i].onclick = ({ target }) => {
             const letter = target.getAttribute("data-key");
+            target.setAttribute("id", letter);
+            
 
             if (letter === "enter") {
                 handleSubmitCode();

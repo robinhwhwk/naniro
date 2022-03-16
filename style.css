@@ -88,7 +88,7 @@ button.icon {
     float:left;
     flex-grow: 1;
     position: relative;
-    margin: 0;
+    margin-right: 10%;
 }
 
 #right-pallete {
@@ -96,7 +96,7 @@ button.icon {
     flex-grow: 1;
     float: left;
     position:relative;
-    margin: 0;
+    margin-left: 10%;
 }
 
 .menu-left {
