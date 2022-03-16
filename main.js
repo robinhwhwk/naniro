@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const isCorrectLetter = code.includes(letter);
 
         if (!isCorrectLetter) {
-            return "rgb(58, 58, 60)";
+            return "#787C7E";
         }
 
         const letterInThatPosition = code.charAt(index);
