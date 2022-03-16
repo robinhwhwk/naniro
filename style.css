@@ -181,7 +181,7 @@ button.icon {
     z-index: 10;
     background-color: white;
     width: 500px;
-    max-width: 80%;
+    max-width: 100%;
 }
 
 .modal.active {
