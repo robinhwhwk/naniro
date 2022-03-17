@@ -27,11 +27,10 @@
                     <button data-close-button class="close-button">&times;</button>
                 </div>
                 <div class="modal-body">
-                    Guess the <b>COLOR CODE</b> in six tries. <br>
-                    The left pallet shows the target color. The right pallet shows the color of your last guess. <br>
+                    Guess the <b>COLOR CODE</b> for the background in six tries. <br>
+                    The circle shows the color of your last guess. <br>
                     Each guess must be a six-digit hex color code made up of <br> 3 pairs of digits each representing
                     Red, Green, and Blue components of the color in order ranging from 00 to FF. <br>
-                    After each guess, the color of the tiles will change to show how close your guess was to the hex code.
                     <div>
                         <br>
                         <b>Examples</b>
@@ -97,7 +96,7 @@
         <main>
             <div id="game">
                 <div class="pallete">
-                    <div class="circle" id="left-pallete"></div>
+                    <div id="left-pallete"></div>
                     <div class="circle" id="right-pallete"></div>
                 </div>
                 <div id="final-score"></div>

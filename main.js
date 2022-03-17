@@ -74,6 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (storedKeyboardContainer) {
             document.getElementById("keyboard-container").innerHTML = storedKeyboardContainer;
         }
+
+        const guessedColorCode = window.localStorage.getItem('guessedColorCode') || "FFFFFF";
+        fillRightPallete(guessedColorCode);
     }
 
     function preserveGameState() {
@@ -242,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function fillLeftPallete() {
-        const leftPallete = document.getElementById("left-pallete");
+        const leftPallete = document.getElementById("container");
         const palleteColorCode = "#" + currentCode;
         leftPallete.style = `background-color:${palleteColorCode}`;
     }
@@ -251,6 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const rightPallete = document.getElementById("right-pallete");
         const palleteColorCode = "#" + guessedCode;
         rightPallete.style = `background-color:${palleteColorCode}`;
+        window.localStorage.setItem("palleteColorCode", palleteColorCode);
     }
 
     document.addEventListener('keydown', (event) => {
