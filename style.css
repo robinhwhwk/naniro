@@ -104,6 +104,13 @@ button.icon {
     margin: 5px;
 }
 
+.menu-right {
+    position: absolute;
+    margin: 5px;
+    right: 5px;
+    top: 5px;
+}
+
 #board-container {
     display: flex;
     justify-content: center;
@@ -232,7 +239,7 @@ button.icon {
     background-color: rgba(255, 255, 255, .9);
     pointer-events: none;
     transition: 200ms ease-in-out;
-    z-index: 1;
+    z-index: 2;
 }
 
 #overlay.active {
@@ -252,4 +259,24 @@ button.icon {
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
+}
+
+#final-score {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: absolute;
+    background-color: black;
+    color: white;
+    width: fit-content;
+    height: 40px;
+    top: 5%;
+    padding: 5px;
+    z-index: 1;
+    transform: scale(0);
+}
+
+#final-score.active {
+    transform: scale(1);
 }

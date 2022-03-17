@@ -2,8 +2,8 @@ const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
 
+// Open help by default
 const helpModal = document.querySelector('.help')
-openModal(helpModal)
 
 overlay.addEventListener('click', () => {
     const modals = document.querySelectorAll('.modal.active')

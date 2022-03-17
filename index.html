@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naniro: Guess the color</title>
 
-    <script src="main.js"></script>
     <script defer src="helpbutton.js"></script>
+    <script src="main.js"></script>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -30,45 +30,67 @@
                     Guess the <b>COLOR CODE</b> in six tries. <br>
                     The left pallete shows the target color. The right pallete shows the color of your last guess. <br>
                     Each guess must be a six-digit hex color code made up of <br> 3 pairs of digits each representing
-                    Red, Green, and Blue components of the color in order ranging from 00 to FF. Hit the enter button to submit. <br>
+                    Red, Green, and Blue components of the color in order ranging from 00 to FF. <br>
                     After each guess, the color of the tiles will change to show how close your guess was to the hex code.
+                    <div>
+                        <br>
+                        <b>Examples</b>
+                        <div class="examples">
+                            <div class="square">#</div> 
+                            <div class="square" style="background-color: rgb(83, 141, 78)">F</div> 
+                            <div class="square">A</div>
+                            <div class="square">0</div>
+                            <div class="square">7</div>
+                            <div class="square">9</div>
+                            <div class="square">2</div> <br> <br> 
+                        <p>The letter F is in the code and in the correct spot.</p> 
+                            <div class="square">#</div> 
+                            <div class="square">0</div> 
+                            <div class="square">5</div>
+                            <div class="square" style="background-color: rgb(181, 159, 59)">9</div>
+                            <div class="square">4</div>
+                            <div class="square">5</div>
+                            <div class="square">6</div> <br> <br> 
+                            <p>The number 9 differs by 1 from the correct value. <br>
+                            So the possible values for this spot are A and 8. </p>
+                            <div class="square">#</div> 
+                            <div class="square">2</div> 
+                            <div class="square">8</div>
+                            <div class="square">1</div>
+                            <div class="square">A</div>
+                            <div class="square">G</div> 
+                            <div class="square" style="background-color: #787c7e">6</div> <br> <br>
+                            <p>The number 6 is not in the word in any spot.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="overlay"></div>
+        </div>
+        <div class='title'> Naniro </div>
+        <div class="menu-right">
+            <button data-modal-target="#stats" class="icon" aria-label="Statistics">
+                <img src="stats-svgrepo-com.svg" height="24" width="24"
+                    alt="Statistics Button">
+            </button>
+            <div class="modal stats" id="stats">
+                <div class="modal-header">
+                    <div class="title">Statistics</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal-body">
+                    Played: <h3><span id="total-played"></span></h3>
+                    Wins: <h3><span id="total-wins"></span></h3>
+                    Win %: <h3><span id="win-pct"></span></h3>
+                    Current Streak: <h3><span id="current-streak"></span></h3>
                 <div>
                     <br>
-                    <b>Examples</b>
-                    <div class="examples">
-                        <div class="square">#</div> 
-                        <div class="square" style="background-color: rgb(83, 141, 78)">F</div> 
-                        <div class="square">A</div>
-                        <div class="square">0</div>
-                        <div class="square">7</div>
-                        <div class="square">9</div>
-                        <div class="square">2</div> <br> <br> 
-                    <p>The letter F is in the code and in the correct spot.</p> 
-                        <div class="square">#</div> 
-                        <div class="square">0</div> 
-                        <div class="square">5</div>
-                        <div class="square" style="background-color: rgb(181, 159, 59)">7</div>
-                        <div class="square">4</div>
-                        <div class="square">5</div>
-                        <div class="square">6</div> <br> <br> 
-                        <p>The number 7 is in the code but in the wrong spot.</p>
-                        <div class="square">#</div> 
-                        <div class="square">2</div> 
-                        <div class="square">8</div>
-                        <div class="square">1</div>
-                        <div class="square">A</div>
-                        <div class="square">G</div> 
-                        <div class="square" style="background-color: rgb(58,58, 60)">6</div> <br> <br>
-                        <p>The number 6 is not in the word in any spot.</p>
-                    </div>
-                    <p></p>
                 </div>
 
                 </div>
             </div>
             <div id="overlay"></div>
         </div>
-        <div class='title'> Naniro </div>
         <hr>
     </header>
     <div id="container">
@@ -78,6 +100,7 @@
                     <div class="circle" id="left-pallete"></div>
                     <div class="circle" id="right-pallete"></div>
                 </div>
+                <div id="final-score"></div>
                 <div id="board-container">
                     <div id="board"></div>
                 </div>
