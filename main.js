@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 const tileColor = getTileColor(letter, index);
                 const keyboardEl = document.getElementById("key" + letter);
-                keyboardEl.style = `background-color:${tileColor};border-color:${tileColor}`;
+                // keyboardEl.style = `background-color:${tileColor};border-color:${tileColor}`;
             }, interval * currentCodeArr.length + 500);          
         });
 
